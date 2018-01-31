@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Future Homes-Upload</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+  <!-- Plugin CSS -->
+  <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/creative.min.css" rel="stylesheet">
+
+</head>
+<link rel="shortcut icon fa fa-home" type="image/x-icon" href="img/favicon.png">
+<body id="page-top">
+<div class="fixed-top">
+<div class="navbar navbar-expand-lg navbar-light" id="mainNav2"> Disclaimer: This is not a real website. This is a project for San Francisco State University's Software Engineering class.</div>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light" id="mainNav2">
+    <div class="container">
+      <a class="navbar-brand" href="/fa17g10/">Future Homes</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <!-- <li class="nav-item">
+                    <a class="nav-link" href="home.ejs/#about">about</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="home.ejs/#contact">contact</a>
+                </li> -->
+          <!-- <li class="nav-item">
+                    <a class="nav-link" href="login.ejs">log in</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.ejs">sign up</a>
+                </li> -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+ </div>
+
+
+  <div class="center">
+    <div class="container">
+      <div class="centered-form">
+        <div class="center">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Upload Your Listing Here </h3>
+              <h5></h5>
+            </div>
+            <div class="panel-body">
+              <form role="form" method="POST" enctype="multipart/form-data">
+                <div class="row">
+                  <div class="col-xs-6 col-sm-6 col-md-6">
+                    <div class="form-group">
+                      <input type="text" name="address" id="address" class="form-control input-sm floatlabel" placeholder="Address">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="form-group">
+                      <input type="text" name="city" id="city" class="form-control input-sm floatlabel" placeholder="City">
+                    </div>
+                  </div>
+                  <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="form-group">
+                      <input type="text" name="state" id="state" class="form-control input-sm" placeholder="State">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="form-group">
+                      <input type="number" name="zipCode" id="zipCode" class="form-control input-sm" placeholder="Zip Code">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="form-group">
+                      <input type="number" name="bedrooms" id="bedrooms" class="form-control input-sm floatlabel" placeholder="Number of Bedrooms">
+                    </div>
+                  </div>
+                  <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="form-group">
+                      <input type="number" name="squareFootage" id="squareFootage" class="form-control input-sm" placeholder="Square Feet">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="form-group">
+                      <input type="number" name="bathrooms" id="bathrooms" class="form-control input-sm" placeholder="Number of Bathrooms">
+                    </div>
+                  </div>
+                  <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="form-group">
+                      <input type="number" name="price" id="price" class="form-control input-sm" placeholder="Price">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="container"> <br />
+                  <div class="row">
+
+                    <div class="col-md-12">
+                      <div class="panel panel-default">
+                        <div class="panel-heading"><strong>Upload files</strong> <small> </small></div>
+                        <div class="panel-body">
+                          <div class="input-group image-preview">
+                            <input placeholder="" type="text" class="form-control image-preview-filename" disabled="disabled">
+                            <!-- don't give a name === doesn't send on POST/GET -->
+                            <span class="input-group-btn">
+						<!-- image-preview-clear button -->
+						<button type="button" class="btn btn-default image-preview-clear" style="display:none;"> <span class="glyphicon glyphicon-remove"></span> Clear </button>
+                            <!-- image-preview-input -->
+                            <div class="btn btn-default image-preview-input"> <span class="glyphicon glyphicon-folder-open"></span> <span class="image-preview-input-title">Browse</span>
+                              <!-- <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview" /> -->
+                              <input type="file" name="listingImage">
+                              <!-- rename it -->
+                            </div>
+                            <!-- <button type="button" class="btn btn-labeled btn-primary"> <span class="btn-label"><i class="glyphicon glyphicon-upload"></i> </span>Upload</button> -->
+                            </span>
+                          </div>
+                          <!-- /input-group image-preview [TO HERE]-->
+
+                          <br />
+
+                          <!-- Drop Zone -->
+                          <!-- <div class="upload-drop-zone" id="drop-zone"> Or drag and drop files here </div> -->
+                          <br />
+
+                        </div>
+                      </div>
+                    </div>
+
+
+
+                  </div>
+                </div>
+
+                <div style="width:400px;">
+                  <div style="float: left; width: 180px">
+                    <a class="btn btn-block btn-lg btn-primary btn-cancel" href="/fa17g10/dashboard/1">Cancel</a>
+
+                  </div>
+                  <div style="float: right; width: 180px">
+                    <!-- <a class="btn btn-block btn-lg btn-primary" href="/fa17g10/details">Submit</a> -->
+                    <input type="submit" class="btn btn-block btn-lg btn-primary" formaction="/fa17g10/upload/newListing">
+                  </div>
+                </div>
+
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+  <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/creative.min.js"></script>
+
+</body>
+
+</html>

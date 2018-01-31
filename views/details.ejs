@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Future Homes-Details</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="/fa17g10/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="/fa17g10/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+  <!-- Plugin CSS -->
+  <link href="/fa17g10/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="/fa17g10/css/creative.min.css" rel="stylesheet">
+
+  <style>
+      #map {
+			height: 500px;
+			width: 50%;
+      }
+    </style>
+
+
+</head>
+<link rel="shortcut icon fa fa-home" type="image/x-icon" href="img/favicon.png">
+<body id="page-top" onload="initialize()">
+<div class="fixed-top">
+<div class="navbar navbar-expand-lg navbar-light" id="mainNav2"> Disclaimer: This is not a real website. This is a project for San Francisco State University's Software Engineering class.</div>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light" id="mainNav2">
+    <div class="container">
+      <a class="navbar-brand" href="/fa17g10/">Future Homes</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/fa17g10/login">log in</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/fa17g10/signup">sign up</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
+
+
+    <div class="container">
+
+      <div class="  col-xs-12 col-md-3 col-sm-4 pull-right">
+
+        <div class="panel panel-default">
+
+          <!-- Message box title	-->
+          <div class="btn-block">
+            <div class="col-md-10 col-xs-10">
+			<h2> Message Agent</h2>
+
+            </div>
+            <div class="col-md-2 col-xs-2" style="text-align: right;">
+              <a href="#"><span class="glyphicon glyphicon-minus icon_minim"></span></a>
+            </div>
+          </div>
+
+          <!-- Message body	-->
+          <div class="panel-body msg_container_base">
+            <br />
+            <form action="" method="POST">
+              <div class="form-group">
+                <input type="text" class="form-control" id="sender_name" name="sender_name" placeholder="Name">
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" id="sender_email" name="sender_email" placeholder="Email">
+              </div>
+              <div class="form-group">
+                <textarea type="text" class="form-control" id="message" name="message" placeholder="Message..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <input type="submit" class="btn btn-block btn-lg btn-primary" id="submit" formaction="/fa17g10/details/<%= listing.id %>/contact" value="Send">
+
+              </div>
+            </form>
+          </div>
+
+
+          <div class="panel-footer">
+            <div class="input-group">
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+	   <div class="row">
+    <div class="row">
+      <h2> <%= listing.street %>, <%= listing.city %>, <%= listing.state %> <%= listing.zip_code %></h2>
+
+    </div>
+    <div class="row">
+      <a href="#">
+                <img class="img-fluid rounded mb-6 mb-md-0" src="/fa17g10<%= listing.image_path %>" alt="">
+            </a>
+    </div>
+    <div class="col-md-5 details">
+      <p><%= listing.square_footage %> square feet</p>
+      <p><%= listing.bedrooms %> bedrooms</p>
+      <p><%= listing.bathrooms %> bathrooms</p>
+      <p>$<%= listing.price %></p>
+      <p>This home has many great features including two walk in closets, a three car garage, and an infinity pool. The layout of this home makes it perfect for entertaining. This home is only one mile away from the city's best elementary school.</p>
+
+    </div>
+
+
+  </div>
+  </div>
+
+  </div>
+  </div>
+
+  </section>
+
+  <!--Geocoding -->
+   <div class="container">
+    <div id="map">
+    <script>
+	function initMap() {
+		var map = new google.maps.Map(document.getElementById('map'), {
+			zoom: 8,
+			center: {lat: -34.397, lng: 150.644}
+		});
+		var geocoder = new google.maps.Geocoder();
+
+		geocodeAddress(geocoder, map);
+	}
+
+	function geocodeAddress(geocoder, resultsMap) {
+		var address = "<%= listing.street %>, <%= listing.city %>, <%= listing.state %> <%= listing.zip_code %>";
+		geocoder.geocode({'address': address}, function(results, status) {
+			if (status === 'OK') {
+				resultsMap.setCenter(results[0].geometry.location);
+				var marker = new google.maps.Marker({
+					map: resultsMap,
+					position: results[0].geometry.location
+				});
+				var infoWindow = new google.maps.InfoWindow({
+            content: '<h2><%= listing.street %>, <%= listing.city %>, <%= listing.state %> <%= listing.zip_code %></h2>'
+			});
+
+				marker.addListener('click', function() {
+				infoWindow.open(map, marker);
+				});
+			} else {
+			alert('Geocode was not successful for the following reason: ' + status);
+			}
+		});
+	}
+
+	</script>
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQ179sc7G3N5YXemaHnT7g2rfUJ5njAMo&callback=initMap">
+      </script>
+  </div>
+</div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+  <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/creative.min.js"></script>
+
+</body>
+
+</html>

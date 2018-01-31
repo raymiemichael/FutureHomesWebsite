@@ -1,0 +1,11 @@
+#profilePic {box-shadow: 5px 5px 10px grey; width: 30%; height: 30%; border-radius: 1000px; margin-top: 3%}
+#container {text-align: center}
+#container2 {box-shadow: 5px 5px 10px grey; margin-left: 25%; margin-right:25%; border: 10px solid black; border-radius: 50px; text-align: center; font-size: 100px; padding-top: 30px; padding-bottom: 30px}
+#next {position: fixed; left: 95%; bottom: 3%}
+#prev {position: fixed; right: 95%; bottom: 3%}
+#next, #prev {color: rgb(150,150,150); border-radius: 20px; text-decoration: none; padding: 10px 10px 10px 10px; box-shadow: 10px 10px 10px grey;}
+#next:hover, #prev:hover {color: rgb(50,50,50)}
+#nav {position: fixed; top: 95%}
+#facebook {width: 5%; height: 5%}
+#aboutme {box-shadow: 5px 5px 10px grey; border-radius: 20px; padding: 20px 20px 20px 20px; text-align: left; border: 1px solid blue; width: 50%; margin-left: 25%; margin-right: 25%}
+body {background: rgb(230,230,230)}
